@@ -1,11 +1,11 @@
 
 # Customer-Records
 
-# Description
+## Description
 
 This is a simple Spring Boot Java application that parses a JSON list of those customer records and outputs a list of customers within 100 kilometers of a known geo coordinate and sorts them by their 'user_id' field in ascending order.
 
-## Implementation Details
+### Implementation Details
 * Easily-runnable Spring Boot application bootstrapped using Spring Initializr
 * Application properties are configurable via YAML file
 * Idiomatic Spring and Java code using
@@ -16,26 +16,26 @@ This is a simple Spring Boot Java application that parses a JSON list of those c
 * SCM using git and GitHub
 * MIT license
 
-## Technologies
+### Technologies Used
 * Java 8
 * Spring
 * Spring Boot
 * Spring Initializr
 * git
 
-## Dependencies
+### Dependencies Used
 * Hamcrest
 * Jackson(ObjectMapper for parsing)
 
-## Future Areas of Improvements
+### Future Areas of Improvements
 * Make the properties configurable via command-line arguments and/or a GUI
 * Improve application architecture following an industry-standard design pattern
 * Improve test coverage and application robustness
 * Use multiple branches for SCM(define branching strategy)
 * Adopt a code style(e.g. Google Java Style Guide)
 
-# Build Instructions
+## Build and Run The Application
 * Run the 'Application' class under your development environment  of choice(e.g. IntelliJ)
 
-# Run Tests
+## Run Tests
 *  Run the 'ApplicationTests' class under your development environment  of choice(e.g. IntelliJ)
