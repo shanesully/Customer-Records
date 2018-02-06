@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 class DistanceCalculator
 {
-    public static double distanceInKm(double sourceLat, double sourceLong, double targetLat, double targetLong) {
+    public double distanceInKm(double sourceLat, double sourceLong, double targetLat, double targetLong) {
 
         sourceLat = Math.toRadians(sourceLat);
         sourceLong = Math.toRadians(sourceLong);
@@ -24,11 +24,11 @@ class DistanceCalculator
         return distance;
     }
 
-    private static double convertDistanceInDegreesToNauticalMiles(double distanceInDegrees) {
+    private double convertDistanceInDegreesToNauticalMiles(double distanceInDegrees) {
         return distanceInDegrees * 60 * 1.1515;
     }
 
-    private static double convertDistanceInNauticalMilesToKm(double distanceInNauticalMiles) {
+    private double convertDistanceInNauticalMilesToKm(double distanceInNauticalMiles) {
         return distanceInNauticalMiles * 1.609344;
     }
 }

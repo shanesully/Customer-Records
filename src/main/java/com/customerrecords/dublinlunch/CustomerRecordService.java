@@ -1,7 +1,7 @@
 package com.customerrecords.dublinlunch;
 
-import com.customerrecords.dublinlunch.beans.CustomerRecord;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,9 +10,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.customerrecords.dublinlunch.ServiceConstants.CUSTOMER_RECORD_RAW_URL;
-
 public class CustomerRecordService {
+
+    @Value("raw-customer-records-url")
+    private String RAW_CUSTOMER_RECORDS_URL;
 
     CustomerRecordService() throws IOException {
         retrieveCustomerRecords();
@@ -21,7 +22,7 @@ public class CustomerRecordService {
     private List<CustomerRecord> customerRecords;
 
     private void retrieveCustomerRecords() throws IOException {
-        URL customerRecordFile = new URL(CUSTOMER_RECORD_RAW_URL);
+        URL customerRecordFile = new URL(RAW_CUSTOMER_RECORDS_URL);
         BufferedReader recordLine = new BufferedReader(new InputStreamReader(customerRecordFile.openStream()));
 
         customerRecords = new ArrayList<>();

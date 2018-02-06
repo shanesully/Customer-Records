@@ -1,8 +1,5 @@
-package com.customerrecords.dublinlunch.beans;
+package com.customerrecords.dublinlunch;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class CustomerRecord implements Comparable<CustomerRecord> {
     private Double latitude;
     private Integer user_id;

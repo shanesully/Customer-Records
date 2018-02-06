@@ -1,7 +1,7 @@
 package com.customerrecords.dublinlunch;
 
-import com.customerrecords.dublinlunch.beans.CustomerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,15 +9,20 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static com.customerrecords.dublinlunch.ServiceConstants.MAXIMUM_DISTANCE_IN_KM;
-import static com.customerrecords.dublinlunch.ServiceConstants.SOURCE_LATITUDE;
-import static com.customerrecords.dublinlunch.ServiceConstants.SOURCE_LONGITUDE;
-
 @SpringBootApplication
 public class Application {
 
+    @Value("${source-latitude}")
+    private static double SOURCE_LATITUDE;
+
+    @Value("${source-longitude}")
+    private static double SOURCE_LONGITUDE;
+
+    @Value("${maximum-distance-in-kilometers}")
+    private static double MAXIMUM_DISTANCE_IN_KILOMETERS;
+
     @Autowired
-    DistanceCalculator distanceCalculator;
+    private static DistanceCalculator distanceCalculator;
 
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(Application.class, args);
@@ -27,7 +32,7 @@ public class Application {
         CustomerRecordService customerRecordService = new CustomerRecordService();
 
         for(CustomerRecord customerRecord : customerRecordService.getCustomerRecords()) {
-            if(DistanceCalculator.distanceInKm(SOURCE_LATITUDE, SOURCE_LONGITUDE, customerRecord.getLatitude(), customerRecord.getLongitude()) < MAXIMUM_DISTANCE_IN_KM) {
+            if(distanceCalculator.distanceInKm(SOURCE_LATITUDE, SOURCE_LONGITUDE, customerRecord.getLatitude(), customerRecord.getLongitude()) < MAXIMUM_DISTANCE_IN_KILOMETERS) {
                 freeLunchList.add(customerRecord);
             }
         }
