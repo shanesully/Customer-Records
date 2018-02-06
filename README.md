@@ -35,6 +35,7 @@ This is a simple Spring Boot Java application that parses a JSON list of those c
 * Use multiple branches for SCM(define branching strategy)
 * Adopt a code style(e.g. Google Java Style Guide)
 * Implement SLF4J logging
+* Implement bare-bones CI/CD pipeline(Jenkins, SonarQube, etc)
 
 ## Build and Run The Application
 * Run the 'Application' class under your development environment  of choice(e.g. IntelliJ)
