@@ -35,6 +35,9 @@ public class ApplicationTests {
 	@Autowired
 	private DistanceCalculator distanceCalculator;
 
+	@Autowired
+	private FreeLunchService freeLunchService;
+
 	@Test
 	public void contextLoads() {
 	}
@@ -48,5 +51,10 @@ public class ApplicationTests {
 		);
 
 		Assert.assertThat(distance, closeTo(KNOWN_CORRECT_COMPARISON_VALUE, ACCEPTABLE_FLOAT_ARITHMETIC_DEVIATION));
+	}
+
+	@Test
+	public void testStaticCustomerRecordsDataSourceWorks() {
+		Assert.assertNotNull(freeLunchService.returnListOfCustomers());
 	}
 }

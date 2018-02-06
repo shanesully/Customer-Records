@@ -2,6 +2,7 @@ package com.customerrecords.dublinlunch;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,18 +12,15 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class CustomerRecordService {
 
     @Value("${raw-customer-records-url}")
     private String RAW_CUSTOMER_RECORDS_URL;
 
-    CustomerRecordService() throws IOException {
-        retrieveCustomerRecords();
-    }
-
     private List<CustomerRecord> parsedCustomerRecords;
 
-    private void retrieveCustomerRecords() {
+    public void retrieveCustomerRecords() {
         URL rawCustomerRecords = null;
 
         try {
@@ -45,7 +43,7 @@ public class CustomerRecordService {
             }
 
             recordLine.close();
-        } catch (IOException e) {
+        } catch (IOException e ) {
             System.out.println("Unable to parse customer records from source");
         }
     }
