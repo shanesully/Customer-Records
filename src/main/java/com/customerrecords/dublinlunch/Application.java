@@ -31,7 +31,7 @@ public class Application {
 
         CustomerRecordService customerRecordService = new CustomerRecordService();
 
-        for(CustomerRecord customerRecord : customerRecordService.getCustomerRecords()) {
+        for(CustomerRecord customerRecord : customerRecordService.getParsedCustomerRecords()) {
             if(distanceCalculator.distanceInKm(SOURCE_LATITUDE, SOURCE_LONGITUDE, customerRecord.getLatitude(), customerRecord.getLongitude()) < MAXIMUM_DISTANCE_IN_KILOMETERS) {
                 freeLunchList.add(customerRecord);
             }

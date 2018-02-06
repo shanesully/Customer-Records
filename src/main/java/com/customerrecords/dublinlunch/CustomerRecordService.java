@@ -6,43 +6,55 @@ import org.springframework.beans.factory.annotation.Value;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerRecordService {
 
-    @Value("raw-customer-records-url")
+    @Value("${raw-customer-records-url}")
     private String RAW_CUSTOMER_RECORDS_URL;
 
     CustomerRecordService() throws IOException {
         retrieveCustomerRecords();
     }
 
-    private List<CustomerRecord> customerRecords;
+    private List<CustomerRecord> parsedCustomerRecords;
 
-    private void retrieveCustomerRecords() throws IOException {
-        URL customerRecordFile = new URL(RAW_CUSTOMER_RECORDS_URL);
-        BufferedReader recordLine = new BufferedReader(new InputStreamReader(customerRecordFile.openStream()));
+    private void retrieveCustomerRecords() {
+        URL rawCustomerRecords = null;
 
-        customerRecords = new ArrayList<>();
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        String inputLine;
-
-        while ((inputLine = recordLine.readLine()) != null) {
-            CustomerRecord customerRecord = objectMapper.readValue(inputLine, CustomerRecord.class);
-            customerRecords.add(customerRecord);
+        try {
+            rawCustomerRecords = new URL(RAW_CUSTOMER_RECORDS_URL);
+        } catch (MalformedURLException e) {
+            System.out.println("Unable to parse raw URL");
         }
 
-        recordLine.close();
+        try {
+            BufferedReader recordLine = new BufferedReader(new InputStreamReader(rawCustomerRecords.openStream()));
+
+            parsedCustomerRecords = new ArrayList<>();
+            ObjectMapper objectMapper = new ObjectMapper();
+
+            String inputLine;
+
+            while ((inputLine = recordLine.readLine()) != null) {
+                CustomerRecord customerRecord = objectMapper.readValue(inputLine, CustomerRecord.class);
+                parsedCustomerRecords.add(customerRecord);
+            }
+
+            recordLine.close();
+        } catch (IOException e) {
+            System.out.println("Unable to parse customer records from source");
+        }
     }
 
-    public List<CustomerRecord> getCustomerRecords() {
-        return customerRecords;
+    public List<CustomerRecord> getParsedCustomerRecords() {
+        return parsedCustomerRecords;
     }
 
-    private void setCustomerRecords(List<CustomerRecord> customerRecords) {
-        this.customerRecords = customerRecords;
+    private void setParsedCustomerRecords(List<CustomerRecord> parsedCustomerRecords) {
+        this.parsedCustomerRecords = parsedCustomerRecords;
     }
 }
