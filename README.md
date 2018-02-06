@@ -14,6 +14,7 @@ This is a simple Spring Boot Java application that parses a JSON list of those c
 * Easily extensible following industry-standard technologies
 * Calculations using standard Math libraries
 * SCM using git and GitHub
+* gitignore file to keep commits junk-free
 * MIT license
 
 ### Technologies Used
