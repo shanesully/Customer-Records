@@ -39,6 +39,7 @@ This is a simple Spring Boot Java application that parses a JSON list of those c
 * Configure mocking for tests
 * Implement validation services at controller-level
 * Make port easily configurable
+* Accept datasource and latlong reference geocoord as fields in the request body and return a proper JSON object in the response
 
 ## Build and Run The Application
 * Run the 'Application' class under your development environment  of choice(e.g. IntelliJ)
