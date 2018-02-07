@@ -1,5 +1,7 @@
-package com.customerrecords.dublinlunch;
+package com.customerrecords.dublinlunch.Services;
 
+import com.customerrecords.dublinlunch.Entities.CustomerRecord;
+import com.customerrecords.dublinlunch.Utility.DistanceCalculator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

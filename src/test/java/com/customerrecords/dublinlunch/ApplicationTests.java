@@ -1,5 +1,7 @@
 package com.customerrecords.dublinlunch;
 
+import com.customerrecords.dublinlunch.Services.FreeLunchService;
+import com.customerrecords.dublinlunch.Utility.DistanceCalculator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.Assert;

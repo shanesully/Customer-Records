@@ -1,9 +1,9 @@
-package com.customerrecords.dublinlunch;
+package com.customerrecords.dublinlunch.Utility;
 
 import org.springframework.stereotype.Component;
 
 @Component
-class DistanceCalculator
+public class DistanceCalculator
 {
     public double distanceInKm(double sourceLat, double sourceLong, double targetLat, double targetLong) {
 

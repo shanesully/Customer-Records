@@ -1,4 +1,4 @@
-package com.customerrecords.dublinlunch;
+package com.customerrecords.dublinlunch.Entities;
 
 public class CustomerRecord implements Comparable<CustomerRecord> {
     private Double latitude;
