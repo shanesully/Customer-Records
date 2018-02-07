@@ -5,15 +5,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class DistanceCalculator
 {
-    public double distanceInKm(double sourceLat, double sourceLong, double targetLat, double targetLong) {
+    public double distanceInKm(
+            double referenceLatitude, double referenceLongitude,
+            double givenLatitude, double givenLongitude) {
 
-        sourceLat = Math.toRadians(sourceLat);
-        sourceLong = Math.toRadians(sourceLong);
-        targetLat = Math.toRadians(targetLat);
-        targetLong = Math.toRadians(targetLong);
+        referenceLatitude = Math.toRadians(referenceLatitude);
+        referenceLongitude = Math.toRadians(referenceLongitude);
+        givenLatitude = Math.toRadians(givenLatitude);
+        givenLongitude = Math.toRadians(givenLongitude);
 
-        double theta = sourceLong - targetLong;
-        double distance = (Math.sin(sourceLat) * Math.sin(targetLat)) + (Math.cos(sourceLat) * Math.cos(targetLat) * Math.cos(theta));
+        double theta = referenceLongitude - givenLongitude;
+        double distance = (Math.sin(referenceLatitude) * Math.sin(givenLatitude)) + (Math.cos(referenceLatitude) * Math.cos(givenLatitude) * Math.cos(theta));
 
         distance = Math.acos(distance);
         distance = Math.toDegrees(distance);
