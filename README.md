@@ -38,9 +38,11 @@ This is a simple Spring Boot Java application that parses a JSON list of those c
 * Implement bare-bones CI/CD pipeline(Jenkins, SonarQube, etc)
 * Configure mocking for tests
 * Implement validation services at controller-level
+* Make port easily configurable
 
 ## Build and Run The Application
 * Run the 'Application' class under your development environment  of choice(e.g. IntelliJ)
+* Navigate to 'http://localhost:8080' in your web browser of choice
 
 ## Run Tests
 *  Run the 'ApplicationTests' class under your development environment  of choice(e.g. IntelliJ)
