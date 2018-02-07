@@ -14,7 +14,7 @@ public class FreeLunchController {
     private FreeLunchService freeLunchService;
 
     @RequestMapping("/")
-    public List hello() {
+    public List returnCustomersList() {
         return freeLunchService.returnListOfCustomers();
     }
 }
