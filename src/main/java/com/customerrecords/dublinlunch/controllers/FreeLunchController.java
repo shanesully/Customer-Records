@@ -1,6 +1,6 @@
-package com.customerrecords.dublinlunch.Controllers;
+package com.customerrecords.dublinlunch.controllers;
 
-import com.customerrecords.dublinlunch.Services.FreeLunchService;
+import com.customerrecords.dublinlunch.services.FreeLunchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

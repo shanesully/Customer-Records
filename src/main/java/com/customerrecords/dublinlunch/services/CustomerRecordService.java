@@ -1,6 +1,6 @@
-package com.customerrecords.dublinlunch.Services;
+package com.customerrecords.dublinlunch.services;
 
-import com.customerrecords.dublinlunch.Entities.CustomerRecord;
+import com.customerrecords.dublinlunch.entities.CustomerRecord;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package com.customerrecords.dublinlunch.Utility;
+package com.customerrecords.dublinlunch.utility;
 
 import org.springframework.stereotype.Component;
 
